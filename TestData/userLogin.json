@@ -1,0 +1,21 @@
+
+
+
+{
+  "valid": {
+    "username": "Aldry123",
+    "password": "Qwertyuiop@890"
+  },
+  "invalid": [
+    {
+      "username": "admin",
+      "password": "wrongpass"
+    },
+    {
+      "username": "wronguser",
+      "password": "password123"
+    }
+  ]
+}
+
+
