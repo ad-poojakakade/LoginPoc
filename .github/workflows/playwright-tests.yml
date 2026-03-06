@@ -12,11 +12,29 @@ on:
           - UAT
           - QAT_ADMIN
           - UAT_ADMIN
-        default: QAT
 
 jobs:
   playwright-test:
     runs-on: ubuntu-latest
+
+    env:
+      APP_ENV: ${{ github.event.inputs.environment }}
+
+      QAT_URL: ${{ secrets.QAT_URL }}
+      QAT_USERNAME_1: ${{ secrets.QAT_USERNAME_1 }}
+      QAT_PASSWORD_1: ${{ secrets.QAT_PASSWORD_1 }}
+
+      UAT_URL: ${{ secrets.UAT_URL }}
+      UAT_USERNAME_1: ${{ secrets.UAT_USERNAME_1 }}
+      UAT_PASSWORD_1: ${{ secrets.UAT_PASSWORD_1 }}
+
+      QAT_ADMIN_URL: ${{ secrets.QAT_ADMIN_URL }}
+      QAT_ADMIN_USERNAME: ${{ secrets.QAT_ADMIN_USERNAME }}
+      QAT_ADMIN_PASSWORD: ${{ secrets.QAT_ADMIN_PASSWORD }}
+
+      UAT_ADMIN_URL: ${{ secrets.UAT_ADMIN_URL }}
+      UAT_ADMIN_USERNAME: ${{ secrets.UAT_ADMIN_USERNAME }}
+      UAT_ADMIN_PASSWORD: ${{ secrets.UAT_ADMIN_PASSWORD }}
 
     steps:
       - name: Checkout repository
@@ -35,8 +53,6 @@ jobs:
 
       - name: Run Playwright Tests
         run: npx playwright test
-        env:
-          APP_ENV: ${{ github.event.inputs.environment }}
 
       - name: Upload Playwright Report
         if: always()
