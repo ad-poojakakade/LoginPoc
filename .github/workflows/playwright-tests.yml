@@ -4,9 +4,15 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: "Select environment"
-        required: false
-        default: "qa"
+        description: "Select Environment"
+        required: true
+        type: choice
+        options:
+          - QAT
+          - UAT
+          - QAT_ADMIN
+          - UAT_ADMIN
+        default: QAT
 
 jobs:
   playwright-test:
@@ -29,6 +35,8 @@ jobs:
 
       - name: Run Playwright Tests
         run: npx playwright test
+        env:
+          APP_ENV: ${{ github.event.inputs.environment }}
 
       - name: Upload Playwright Report
         if: always()
