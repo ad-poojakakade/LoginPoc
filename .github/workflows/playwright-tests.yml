@@ -4,7 +4,15 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        steps:
+        description: "Select environment"
+        required: false
+        default: "qa"
+
+jobs:
+  playwright-test:
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
