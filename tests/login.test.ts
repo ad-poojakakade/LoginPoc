@@ -2,7 +2,7 @@ import { test } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 import { env } from '../config/env';
 
-test('Login form automate', async ({ page }) => {
+test.only('Login form automate', async ({ page }) => {
 
   const loginPage = new LoginPage(page);
 
