@@ -1,24 +1,14 @@
-name: Playwright Tests
+name: Run Playwright Tests
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-jobs:
-  playwright-test:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        env: [QAT, UAT]
-
-    steps:
+  workflow_dispatch:
+    inputs:
+      environment:
+        steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
@@ -31,12 +21,10 @@ jobs:
 
       - name: Run Playwright Tests
         run: npx playwright test
-        env:
-          APP_ENV: ${{ matrix.env }}
 
       - name: Upload Playwright Report
-        uses: actions/upload-artifact@v4
         if: always()
+        uses: actions/upload-artifact@v4
         with:
-          name: playwright-report-${{ matrix.env }}
-          path: playwright-report/
+          name: playwright-report
+          path: playwright-report

@@ -25,6 +25,18 @@ else if (APP_ENV === 'UAT') {
   console.log("UAT URL:", baseURL);
 }
 
+else if (APP_ENV === 'QAT_ADMIN') {
+  baseURL = process.env.QAT_ADMIN_URL;
+  username = process.env.QAT_ADMIN_USERNAME;
+  password = process.env.QAT_ADMIN_PASSWORD;
+}
+
+else if (APP_ENV === 'UAT_ADMIN') {
+  baseURL = process.env.UAT_ADMIN_URL;
+  username = process.env.UAT_ADMIN_USERNAME;
+  password = process.env.UAT_ADMIN_PASSWORD;
+}
+
 else {
   throw new Error(`Invalid APP_ENV value: ${APP_ENV}`);
 }
