@@ -24,9 +24,21 @@ jobs:
       QAT_USERNAME_1: ${{ secrets.QAT_USERNAME_1 }}
       QAT_PASSWORD_1: ${{ secrets.QAT_PASSWORD_1 }}
 
+      QAT_USERNAME_2: ${{ secrets.QAT_USERNAME_2 }}
+      QAT_PASSWORD_2: ${{ secrets.QAT_PASSWORD_2 }}
+
+      QAT_USERNAME_3: ${{ secrets.QAT_USERNAME_3 }}
+      QAT_PASSWORD_3: ${{ secrets.QAT_PASSWORD_3 }}
+
       UAT_URL: ${{ secrets.UAT_URL }}
       UAT_USERNAME_1: ${{ secrets.UAT_USERNAME_1 }}
       UAT_PASSWORD_1: ${{ secrets.UAT_PASSWORD_1 }}
+
+      UAT_USERNAME_2: ${{ secrets.UAT_USERNAME_2 }}
+      UAT_PASSWORD_2: ${{ secrets.UAT_PASSWORD_2 }}
+
+      UAT_USERNAME_3: ${{ secrets.UAT_USERNAME_3 }}
+      UAT_PASSWORD_3: ${{ secrets.UAT_PASSWORD_3 }}
 
       QAT_ADMIN_URL: ${{ secrets.QAT_ADMIN_URL }}
       QAT_ADMIN_USERNAME: ${{ secrets.QAT_ADMIN_USERNAME }}
